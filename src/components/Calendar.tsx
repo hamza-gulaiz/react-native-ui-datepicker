@@ -32,7 +32,9 @@ const Calendar = ({ buttonPrevIcon, buttonNextIcon }: PropTypes) => {
         />
       ) : null}
       <View style={styles.calendarContainer}>{CalendarView[calendarView]}</View>
+
       {mode !== 'time' ? <Footer /> : null}
+
     </View>
   );
 };

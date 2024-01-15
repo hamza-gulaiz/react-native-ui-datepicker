@@ -21,13 +21,13 @@ dayjs.extend(relativeTime);
 dayjs.extend(localizedFormat);
 
 interface PropTypes extends CalendarTheme, HeaderProps {
-  value: DateType ;
+  value: DateType;
   mode?: CalendarModes;
   locale?: string | ILocale;
   minimumDate?: DateType;
   maximumDate?: DateType;
   firstDayOfWeek?: number;
-  onValueChange?: (value: object) => void;
+  onValueChange?: (to: DateType,from:DateType) => void;
   displayFullDays?: boolean;
 }
 
@@ -154,7 +154,9 @@ const DateTimePicker = ({
   const actions = {
     setCalendarView: (view: CalendarViews) =>
       dispatch({ type: CalendarActionKind.SET_CALENDAR_VIEW, payload: view }),
+      
     onSelectDate: (date: DateType) => {
+    
       dispatch({
         type: CalendarActionKind.CHANGE_SELECTED_DATE,
         payload: date,
@@ -170,7 +172,7 @@ const DateTimePicker = ({
     },
     onSelectDateTo: (date: DateType, from: DateType) => {
       if (from != null) {
-        onValueChange({ from, date });
+        onValueChange(from, date);
       }
       dispatch({
         type: CalendarActionKind.CHANGE_SELECTED_DATE_TO,

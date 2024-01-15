@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { useCalendarContext } from '../CalendarContext';
-import dayjs from 'dayjs';
 import { CalendarViews } from '../enums';
 import { formatTimeWithAmPm } from '../utils';
 
@@ -25,7 +24,8 @@ const Footer = () => {
       accessibilityRole="header"
     >
       <View style={styles.container}>
-        <Text style={styles.text}>Ends</Text>
+
+        <Text style={[styles.text, theme?.headerTextStyle]}>Ends</Text>
 
         {mode === 'datetime' && calendarView !== CalendarViews.year ? (
           <Pressable
@@ -37,9 +37,7 @@ const Footer = () => {
               )
             }
             accessibilityRole="button"
-            accessibilityLabel={dayjs(
-              selectedDateTo ? selectedDateTo : selectedDate
-            ).format('HH:mm')}
+            accessibilityLabel={time}
           >
             <View
               style={[styles.textContainer, theme?.headerTextContainerStyle]}
@@ -56,9 +54,12 @@ const Footer = () => {
 const styles = StyleSheet.create({
   headerContainer: {
     justifyContent: 'center',
+    marginTop:15,
+    borderTopWidth: 1,
+    borderColor: 'rgba(84, 84, 88, 0.65)',
   },
   container: {
-    marginTop: 5,
+    marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -69,15 +70,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textContainer: {
-    backgroundColor: '#E5E5E5',
-    marginHorizontal: 1,
-    paddingHorizontal: 5,
+    backgroundColor: 'rgba(118, 118, 128, 0.24)',
+    alignItems:'center',
+    justifyContent: 'center',
+    marginHorizontal: 0,
+    paddingHorizontal: 0,
     paddingVertical: 5,
     borderRadius: 10,
   },
   text: {
     fontWeight: 'bold',
     fontSize: 15,
+    color: '#FFFFFF',
   },
   iconContainer: {
     padding: 4,

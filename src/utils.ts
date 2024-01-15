@@ -14,7 +14,7 @@ export const getWeekdays = () => dayjs.weekdays();
 export const getWeekdaysShort = () => dayjs.weekdaysShort();
 
 export const getWeekdaysMin = (firstDayOfWeek: number) => {
-  let days = dayjs.weekdaysMin();
+  let days = dayjs.weekdaysShort();
   if (firstDayOfWeek > 0) {
     days = [
       ...days.slice(firstDayOfWeek, days.length),
@@ -27,9 +27,11 @@ export const getWeekdaysMin = (firstDayOfWeek: number) => {
 export function formatTimeWithAmPm(
   time: string | number | Date | dayjs.Dayjs | null | undefined
 ) {
-  const formattedTime = dayjs(time ? time : getFormated(new Date())).format(
-    'HH:MM'
-  );
+
+  
+  const formattedTime = dayjs(time != null? time : getFormated(new Date())).format(
+    'HH:mm'
+    );
   const formattedHour = dayjs(time ? time : getFormated(new Date())).format(
     'HH'
   );

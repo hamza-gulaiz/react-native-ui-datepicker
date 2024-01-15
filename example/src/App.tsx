@@ -101,8 +101,8 @@ export default function App() {
               headerButtonsPosition="right"
               displayFullDays={true}
               locale={locale}
-              onValueChange={(date) => {
-                console.log('date range', date);
+              onValueChange={(to,from) => {
+                console.log('date range', to,from);
                 // setValue(date);
               }}
               headerButtonColor={theme?.mainColor}
@@ -118,7 +118,7 @@ export default function App() {
               }}
               mode="datetime"
             />
-            {/* <View style={styles.footerContainer}>
+            <View style={styles.footerContainer}>
               <Text>
                 {dayjs(value).locale(locale).format('MMMM, DD, YYYY - HH:mm')}
               </Text>
@@ -145,7 +145,7 @@ export default function App() {
                   </Text>
                 </View>
               </Pressable>
-            </View> */}
+            </View>
           </View>
         </View>
         <View style={styles.githubContainer}>
@@ -174,11 +174,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'black',
+
   },
   body: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'black',
     alignItems: 'center',
   },
   titleContainer: {
@@ -225,10 +226,12 @@ const styles = StyleSheet.create({
   },
   datePickerContainer: {
     alignItems: 'center',
+    backgroundColor: 'rgba(84, 84, 88, 0.3)',
   },
   datePicker: {
+    backgroundColor: 'rgba(84, 84, 88, 0.3)',
     width: 330,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     padding: 15,
     borderRadius: 15,
     shadowRadius: 20,

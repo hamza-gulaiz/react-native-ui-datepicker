@@ -60,8 +60,8 @@ const TimeSelector = () => {
             }}
             setValue={(value) => {
               const newDate = getDate(currentDate).minute(value);
-              onSelectDate(getFormated(newDate));
               onSelectDateTo(getFormated(newDate), selectedDate);
+              onSelectDate(getFormated(newDate));
             }}
           />
         </View>

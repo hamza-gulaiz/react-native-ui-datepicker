@@ -86,6 +86,7 @@ const DaySelector = () => {
     [onSelectDate, onSelectDateTo, hour, minute, selectedDate, selectedDateTo]
   );
 
+
   return (
     <View style={styles.container} testID="day-selector">
       <View
@@ -125,19 +126,16 @@ const DaySelector = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 5,
+    paddingTop: 1,
     width: '100%',
-    // backgroundColor: 'green',
+
   },
   weekDaysContainer: {
     width: '100%',
     flexDirection: 'row',
     paddingBottom: 15,
-    paddingTop: 15,
+    paddingTop: 10,
     alignItems: 'center',
-    // marginBottom: 10,
-    // borderBottomWidth: 1,
-    // borderColor: '#E5E5E5',
   },
   weekDayCell: {
     width: '14.2%',
@@ -151,8 +149,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     flexDirection: 'row',
     alignContent: 'flex-start',
-    borderBottomWidth: 1,
-    borderColor: '#E5E5E5',
+
   },
 });
 
